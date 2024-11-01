@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History - Apache Bookstore</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Order History</h1>
+    </header>
+    <main>
+        <!-- Check if there are any orders -->
+        {% if orders %}
+            <ul class="order-list">
+                {% for order in orders %}
+                    <li>
+                        <strong>Book Title:</strong> {{ order.book_title }}<br>
+                        <strong>Quantity:</strong> {{ order.quantity }}<br>
+                        <strong>Shipping Address:</strong> {{ order.shipping_address }}<br>
+                        <strong>Order Date:</strong> {{ order.date_created.strftime('%Y-%m-%d %H:%M:%S') }}<br>
+                        <br>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You have no orders yet.</p>
+        {% endif %}
+    </main>
+    <footer>
+        &copy; 2024 Apache Bookstore
+    </footer>
+    <br>
+    <a href="/">Return to Home Page</a>
+</body>
+</html>

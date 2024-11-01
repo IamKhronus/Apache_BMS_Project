@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apache Bookstore - Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Dropdown Menu styling */
+    .dropdown {
+      position: absolute;
+      background-color: white;
+      list-style-type: none;
+      padding: 10px;
+      width: 150px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      z-index: 1;
+      text-align: left; 
+      opacity: 0; /* Initial opacity 0 */
+      visibility: hidden; /* Initially hidden */
+      transition: opacity 0.3s ease, visibility 0.3s ease; /* Add a transition */
+    }
+
+    .dropdown li a {
+      color: black;
+      padding: 10px;
+      text-decoration: none;
+      display: block; 
+    }
+
+    .dropdown li a:hover {
+      background-color: rgb(239, 226, 203);
+    }
+
+    .banner-nav nav ul li:hover .dropdown {
+      display: block;  
+      opacity: 1; /* Opacity 1 on hover */
+      visibility: visible; /* Make it visible on hover */ 
+    }
+  </style>
+</head>
+<body>
+  <header class="header-main">
+    <h1>Apache Bookstore</h1>
+
+    <form action="/search" method="get" class="search-form">
+      <input type="text" name="query" placeholder="Search books..." class="search-input">
+      <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+    </form>
+
+    <a href="/checkout" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+  </header>
+
+  <div class="banner-nav">
+    <nav>
+      <ul>
+        <li>
+          <a href="#" id="books-link" aria-expanded="false">Books <i class="fas fa-caret-down"></i></a>
+          <ul id="dropdown-books" class="dropdown" aria-hidden="true">
+            <li><a href="/books/fiction">Fiction</a></li>
+            <li><a href="/books/non-fiction">Non-fiction</a></li>
+            <li><a href="/promotions">Promotions</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" id="account-link" aria-expanded="false">My Account <i class="fas fa-caret-down"></i></a>
+          <ul id="dropdown-account" class="dropdown" aria-hidden="true">
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/my-orders">My Orders</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <section id="featured-books">
+      <h2>Featured Books</h2>
+      <div class="featured-books-container">
+        <!-- Placeholder for featured books content -->
+        <p>Popular books will be displayed here.</p>
+      </div> 
+    </section>
+
+    <img src="{{ url_for('static', filename='books.jpg') }}" alt="Books" class="center-image">
+  </main>
+
+  <footer>
+    &copy; 2024 Apache Bookstore
+  </footer>
+
+  <script>
+    document.querySelectorAll('.banner-nav nav ul li').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const dropdown = item.querySelector('.dropdown');
+        if (dropdown) {
+          dropdown.style.visibility = 'visible';
+          dropdown.style.opacity = 1; 
+        }
+      });
+
+      item.addEventListener('mouseleave', () => {
+        const dropdown = item.querySelector('.dropdown');
+        if (dropdown) {
+          // Use a single setTimeout with a delay
+          setTimeout(() => {
+            dropdown.style.opacity = 0; 
+            dropdown.style.visibility = 'hidden';
+          }, 300); // Adjust delay as needed (in milliseconds)
+        }
+      });
+    });
+  </script> 
+</body>
+</html>

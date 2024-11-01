@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Inventory</title>
+</head>
+<body>
+    <h1>Book Inventory</h1>
+    <h2>Books</h2>
+    <ul>
+        {% for book in books %}
+            <li>Title: {{ book.title }} - Author: {{ book.author }} - Price: ${{ book.price }} - Stock: {{ book.stock }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Admin Login Information</h2>
+    <ul>
+        {% for admin in admins %}
+            <li>Admin Username: {{ admin.username }} - Password: {{ admin.password }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,208 @@
+/* Reset and general styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(243, 202, 124);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header container - Black background */
+.header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: #333;
+    color: white;
+}
+
+/* Apache Bookstore Title - Left aligned */
+.header-main h1 {
+    font-style: italic;
+    font-size: 26px;
+    color: white;
+    margin: 0;
+    padding-left: 20px;
+    display: inline-block;
+}
+
+/* Search Bar styling */
+.search-form {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 50%; /* Width specified */
+    margin-left: 20px;
+    background-color: #f1f1f1;
+    border-radius: 30px;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 6px 15px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    font-size: 16px;
+    background-color: transparent;
+}
+
+.search-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 6px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: -10px;
+}
+
+.search-button i {
+    color: white;
+}
+
+.search-button:hover {
+    background-color: #555;
+}
+
+/* Cart Icon - Right aligned */
+.cart-icon {
+    font-size: 1.5em;
+    color: white !important;
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+.cart-icon:hover {
+    color: orange;
+}
+
+/* Middle Navigation Banner for Books and My Account - White background */
+.banner-nav {
+    background-color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.banner-nav nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.banner-nav nav ul li {
+    display: inline-block;
+    margin-right: 100px;
+    position: relative;
+}
+
+.banner-nav nav a {
+    color: black;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-decoration: none;
+}
+
+.banner-nav nav a:hover {
+    color: orange;
+}
+
+/* Dropdown Menu styling */
+.dropdown {
+    position: absolute;
+    background-color: white;
+    list-style-type: none;
+    padding: 10px;
+    width: 150px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.dropdown li a {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown li a:hover {
+    background-color: rgb(239, 226, 203);
+}
+
+/* Main Content Area - Light Orange Background */
+main {
+    background-color: #f0b547; /* Light orange */
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+section {
+    margin: 20px 0;
+}
+
+#featured-books h2 {
+    color: black;
+    font-size: 1.5em;
+}
+
+.center-image {
+    display: block;
+    margin: 20px auto;
+    width: 30%;
+    height: auto;
+}
+
+/* Footer Styling - Black background */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+/* Media Query for responsiveness */
+@media only screen and (max-width: 768px) {
+    .header-main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .search-form {
+        max-width: 80%; /* Adjust width for smaller screens */
+    }
+
+    .banner-nav nav ul {
+        flex-direction: column;
+    }
+}
+
+/* Style for Dropdown Arrows */
+.banner-nav nav a i {
+    margin-left: 5px; /* Adds a little space between the text and arrow */
+    font-size: 0.9em; /* Slightly smaller than the text */
+    color: black; /* Ensures the arrows are the same color as the text */
+}
+
+.banner-nav nav a:hover i {
+    color: orange; /* Arrow turns orange on hover */
+}
